@@ -8,10 +8,15 @@
   --muted: rgba(255, 255, 255, 0.58);
   --line: rgba(255, 255, 255, 0.1);
   --line-strong: rgba(255, 255, 255, 0.18);
-  --gold: #c6a15b;
-  --gold-soft: rgba(198, 161, 91, 0.18);
-  --violet: #6334ff;
-  --blue: #0000ee;
+  --red: #c22b35;
+  --red-dark: #8f1d28;
+  --red-soft: rgba(194, 43, 53, 0.2);
+  --graphite: #3f3f43;
+  --graphite-soft: rgba(95, 95, 101, 0.22);
+  --gold: var(--red);
+  --gold-soft: var(--red-soft);
+  --violet: #67676d;
+  --blue: var(--red-dark);
   --green: #22c55e;
   --serif: "Cinzel", Georgia, serif;
   --sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -29,8 +34,8 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 18% 8%, rgba(99, 52, 255, 0.16), transparent 28rem),
-    radial-gradient(circle at 86% 18%, rgba(198, 161, 91, 0.13), transparent 26rem),
+    radial-gradient(circle at 18% 8%, rgba(194, 43, 53, 0.19), transparent 28rem),
+    radial-gradient(circle at 86% 18%, rgba(126, 126, 134, 0.13), transparent 26rem),
     var(--bg);
   font-family: var(--sans);
   line-height: 1.6;
@@ -79,11 +84,101 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--serif);
-  font-size: 0.92rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+}
+
+.brand-logo-link {
+  padding: 6px 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.brand-symbol {
+  position: relative;
+  display: block;
+  width: 58px;
+  height: 44px;
+  flex: 0 0 auto;
+}
+
+.brand-symbol::before,
+.brand-symbol::after,
+.brand-symbol span,
+.brand-symbol i {
+  position: absolute;
+  display: block;
+  content: "";
+  border-radius: 999px 10px 999px 999px;
+  transform-origin: center;
+}
+
+.brand-symbol::before {
+  inset: 4px 10px 8px 0;
+  border: 9px solid var(--red);
+  border-right-color: transparent;
+  transform: rotate(-18deg);
+}
+
+.brand-symbol::after {
+  right: 0;
+  bottom: 10px;
+  width: 38px;
+  height: 12px;
+  background: var(--red);
+  transform: skewX(-22deg);
+}
+
+.brand-symbol span {
+  left: 11px;
+  top: 4px;
+  width: 50px;
+  height: 9px;
+  background: #d1d5db;
+  transform: rotate(-23deg);
+}
+
+.brand-symbol i {
+  left: 12px;
+  bottom: 1px;
+  width: 46px;
+  height: 8px;
+  background: #8f8f96;
+  transform: rotate(4deg) skewX(-24deg);
+}
+
+.brand-lockup {
+  display: grid;
+  gap: 0;
+  min-width: 132px;
+  color: var(--white);
+  line-height: 1;
   text-transform: uppercase;
+}
+
+.brand-lockup small,
+.brand-lockup em {
+  color: rgba(255, 255, 255, 0.76);
+  font-family: var(--sans);
+  font-size: 0.47rem;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.brand-lockup strong {
+  color: var(--red);
+  font-family: var(--sans);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+  line-height: 0.86;
+  text-shadow:
+    -1px -1px 0 #d1d5db,
+    1px -1px 0 #d1d5db,
+    -1px 1px 0 #d1d5db,
+    1px 1px 0 #d1d5db,
+    0 0 24px rgba(194, 43, 53, 0.24);
 }
 
 .brand-mark {
@@ -91,11 +186,11 @@ textarea {
   place-items: center;
   width: 38px;
   height: 38px;
-  border: 1px solid rgba(198, 161, 91, 0.52);
+  border: 1px solid rgba(194, 43, 53, 0.52);
   border-radius: 999px;
   color: var(--gold);
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 30px rgba(198, 161, 91, 0.12);
+  box-shadow: 0 0 30px rgba(194, 43, 53, 0.12);
   font-size: 0.82rem;
 }
 
@@ -118,10 +213,11 @@ textarea {
 
 .nav-cta {
   padding: 10px 18px;
-  border: 1px solid rgba(198, 161, 91, 0.32);
+  border: 1px solid rgba(194, 43, 53, 0.46);
   border-radius: 999px;
   color: var(--white);
-  background: rgba(198, 161, 91, 0.1);
+  background: rgba(194, 43, 53, 0.18);
+  box-shadow: 0 0 26px rgba(194, 43, 53, 0.16);
 }
 
 .menu-toggle {
@@ -196,7 +292,7 @@ textarea {
 .glow-one {
   top: -10rem;
   left: 14%;
-  background: rgba(99, 52, 255, 0.38);
+  background: rgba(194, 43, 53, 0.34);
 }
 
 .glow-two {
@@ -204,13 +300,13 @@ textarea {
   bottom: 12%;
   width: 42rem;
   height: 42rem;
-  background: rgba(198, 161, 91, 0.18);
+  background: rgba(115, 115, 122, 0.2);
 }
 
 .glow-three {
   top: 42%;
   left: -12rem;
-  background: rgba(0, 0, 238, 0.18);
+  background: rgba(143, 29, 40, 0.2);
 }
 
 .hero-media {
@@ -258,12 +354,12 @@ textarea {
   height: 8px;
   border-radius: 999px;
   background: var(--gold);
-  box-shadow: 0 0 18px rgba(198, 161, 91, 0.9);
+  box-shadow: 0 0 18px rgba(194, 43, 53, 0.9);
 }
 
 .lawyer-role {
   margin-bottom: 16px;
-  border-color: rgba(198, 161, 91, 0.18);
+  border-color: rgba(194, 43, 53, 0.18);
   padding: 5px 10px;
 }
 
@@ -285,7 +381,7 @@ h1 {
 
 h1 strong {
   color: transparent;
-  background: linear-gradient(90deg, #ffffff, var(--gold), #8f73ff);
+  background: linear-gradient(90deg, #ffffff, var(--red), #a6a6ad);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -343,13 +439,14 @@ p {
 
 .button-dark {
   color: var(--white);
-  background: linear-gradient(135deg, var(--blue), var(--violet));
-  box-shadow: 0 0 34px rgba(99, 52, 255, 0.24);
+  background: linear-gradient(135deg, var(--red-dark), var(--red));
+  box-shadow: 0 0 34px rgba(194, 43, 53, 0.34);
 }
 
 .button-light {
-  color: #050505;
-  background: var(--white);
+  color: var(--white);
+  background: linear-gradient(135deg, var(--red-dark), var(--red));
+  box-shadow: 0 0 38px rgba(194, 43, 53, 0.34), 0 16px 46px rgba(0, 0, 0, 0.24);
 }
 
 .button-ghost,
@@ -361,7 +458,7 @@ p {
 }
 
 .button-outline {
-  border-color: rgba(198, 161, 91, 0.28);
+  border-color: rgba(194, 43, 53, 0.28);
 }
 
 .hero-mockup {
@@ -411,7 +508,7 @@ p {
   place-items: center;
   border-radius: 999px;
   color: var(--gold);
-  background: rgba(198, 161, 91, 0.1);
+  background: rgba(194, 43, 53, 0.1);
   font-family: var(--serif);
   font-weight: 700;
 }
@@ -445,7 +542,7 @@ p {
   place-items: center;
   border-radius: 999px;
   color: var(--white);
-  background: linear-gradient(135deg, var(--blue), var(--violet), var(--gold));
+  background: linear-gradient(135deg, var(--red-dark), var(--red), var(--graphite));
   font-size: 0.78rem;
   font-weight: 800;
 }
@@ -478,10 +575,10 @@ p {
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(198, 161, 91, 0.2);
+  border: 1px solid rgba(194, 43, 53, 0.2);
   border-radius: 14px;
   color: var(--gold);
-  background: rgba(198, 161, 91, 0.08);
+  background: rgba(194, 43, 53, 0.08);
   font-size: 0.88rem;
   font-weight: 800;
 }
@@ -520,7 +617,7 @@ p {
   display: block;
   height: 100%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--gold), var(--violet));
+  background: linear-gradient(90deg, var(--red), #7e7e86);
 }
 
 .section {
@@ -589,7 +686,7 @@ p {
 .lawyer-card:hover,
 .contact-line:hover {
   transform: translateY(-3px);
-  border-color: rgba(198, 161, 91, 0.34);
+  border-color: rgba(194, 43, 53, 0.34);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.105), rgba(255, 255, 255, 0.045));
 }
 
@@ -642,7 +739,7 @@ p {
 
 .office-section {
   background:
-    radial-gradient(circle at 86% 12%, rgba(198, 161, 91, 0.13), transparent 28rem),
+    radial-gradient(circle at 86% 12%, rgba(194, 43, 53, 0.13), transparent 28rem),
     var(--bg);
 }
 
@@ -703,7 +800,7 @@ p {
   height: 78px;
   object-fit: cover;
   margin-bottom: 26px;
-  border: 1px solid rgba(198, 161, 91, 0.32);
+  border: 1px solid rgba(194, 43, 53, 0.32);
   border-radius: 999px;
   filter: grayscale(1);
 }
@@ -726,7 +823,7 @@ p {
 .cta-section {
   color: var(--white);
   background:
-    radial-gradient(circle at 78% 20%, rgba(99, 52, 255, 0.14), transparent 26rem),
+    radial-gradient(circle at 78% 20%, rgba(194, 43, 53, 0.16), transparent 26rem),
     var(--bg-soft);
 }
 
@@ -737,7 +834,7 @@ p {
   width: 34rem;
   height: 34rem;
   border-radius: 999px;
-  background: rgba(198, 161, 91, 0.1);
+  background: rgba(194, 43, 53, 0.12);
   filter: blur(100px);
   pointer-events: none;
 }
@@ -842,8 +939,8 @@ p {
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  border-color: rgba(198, 161, 91, 0.62);
-  box-shadow: 0 0 0 3px rgba(198, 161, 91, 0.08);
+  border-color: rgba(194, 43, 53, 0.62);
+  box-shadow: 0 0 0 3px rgba(194, 43, 53, 0.08);
 }
 
 .form-note {
@@ -886,7 +983,7 @@ p {
   padding: 0 18px;
   border-radius: 999px;
   color: var(--white);
-  background: #1f7a4d;
+  background: linear-gradient(135deg, #165f3b, #1f7a4d);
   box-shadow: 0 0 28px rgba(31, 122, 77, 0.32), 0 18px 50px rgba(0, 0, 0, 0.3);
   font-size: 0.9rem;
   font-weight: 800;
@@ -998,12 +1095,37 @@ p {
 @media (max-width: 560px) {
   .brand {
     gap: 10px;
-    font-size: 0.78rem;
   }
 
-  .brand-mark {
-    width: 34px;
-    height: 34px;
+  .brand-logo-link {
+    padding: 5px 0;
+  }
+
+  .brand-symbol {
+    width: 46px;
+    height: 36px;
+  }
+
+  .brand-symbol::before {
+    border-width: 7px;
+  }
+
+  .brand-symbol::after {
+    width: 30px;
+    height: 10px;
+  }
+
+  .brand-lockup {
+    min-width: 106px;
+  }
+
+  .brand-lockup small,
+  .brand-lockup em {
+    font-size: 0.39rem;
+  }
+
+  .brand-lockup strong {
+    font-size: 1.55rem;
   }
 
   h1 {

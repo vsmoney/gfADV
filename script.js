@@ -1,5 +1,4 @@
 const WHATSAPP_NUMBER = "551155226708";
-const OFFICE_NAME = "GF Advogados";
 
 const header = document.querySelector("[data-header]");
 const nav = document.querySelector("[data-nav]");
@@ -17,7 +16,7 @@ function buildWhatsAppUrl(message) {
 }
 
 function defaultMessage() {
-  return `Olá, ${OFFICE_NAME}. Gostaria de falar com um advogado e receber orientação sobre meu caso.`;
+  return "Olá, gostaria de falar com um advogado sobre meu caso.";
 }
 
 window.addEventListener("scroll", updateHeader, { passive: true });
@@ -46,11 +45,11 @@ form?.addEventListener("submit", (event) => {
   const message = String(data.get("message") || "").trim();
 
   const text = [
-    `Olá, ${OFFICE_NAME}. Meu nome é ${name}.`,
+    "Olá, gostaria de falar com um advogado sobre meu caso.",
+    `Meu nome é ${name}.`,
     `Meu WhatsApp é ${phone}.`,
     `Área jurídica: ${area}.`,
     `Descrição do caso: ${message}`,
-    "Gostaria de receber orientação sobre o próximo passo.",
   ].join("\n");
 
   window.open(buildWhatsAppUrl(text), "_blank", "noopener,noreferrer");
