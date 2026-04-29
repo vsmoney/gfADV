@@ -28,10 +28,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   color: var(--text);
   background:
     radial-gradient(circle at 18% 8%, rgba(194, 43, 53, 0.19), transparent 28rem),
@@ -392,6 +394,16 @@ h2 {
 
 h3 {
   font-size: clamp(1.25rem, 1.8vw, 1.75rem);
+}
+
+h1,
+h2,
+h3,
+p,
+li,
+strong,
+span {
+  overflow-wrap: anywhere;
 }
 
 p {
@@ -1018,6 +1030,7 @@ p {
 @media (max-width: 980px) {
   .site-header {
     min-height: 68px;
+    padding-inline: 18px;
   }
 
   .menu-toggle {
@@ -1061,7 +1074,7 @@ p {
 
   .section,
   .cta-section {
-    padding-block: 82px;
+    padding: 78px 22px;
   }
 
   .section-grid,
@@ -1089,6 +1102,61 @@ p {
   .mockup-main {
     grid-template-columns: 1fr;
     padding: 24px;
+  }
+
+  .section-grid,
+  .form-section,
+  .section-heading,
+  .office-panel,
+  .glass-card,
+  .practice-item,
+  .lawyer-card,
+  .contact-line,
+  .contact-form,
+  .cta-section {
+    text-align: center;
+  }
+
+  .section-heading,
+  .section-grid,
+  .form-section,
+  .office-panel,
+  .problem-grid,
+  .practice-list,
+  .lawyer-grid,
+  .contact-grid,
+  .difference-list {
+    width: min(100%, 640px);
+    margin-inline: auto;
+  }
+
+  .section-grid p:not(.section-kicker),
+  .office-panel p,
+  .form-copy p,
+  .practice-item p,
+  .glass-card p,
+  .lawyer-card > p:not(.lawyer-role),
+  .cta-section p:not(.section-kicker) {
+    margin-inline: auto;
+  }
+
+  .section-kicker,
+  .lawyer-role,
+  .eyebrow {
+    justify-content: center;
+  }
+
+  .practice-item {
+    align-items: start;
+  }
+
+  .office-panel {
+    gap: 28px;
+    padding: 32px 24px;
+  }
+
+  .office-stats {
+    width: 100%;
   }
 }
 
@@ -1129,7 +1197,33 @@ p {
   }
 
   h1 {
-    font-size: clamp(2.75rem, 16vw, 4.35rem);
+    font-size: clamp(2.35rem, 11.5vw, 3.2rem);
+    line-height: 1.02;
+  }
+
+  h2 {
+    font-size: clamp(1.78rem, 8vw, 2.35rem);
+    line-height: 1.12;
+  }
+
+  h3 {
+    font-size: clamp(1.08rem, 5.5vw, 1.35rem);
+    line-height: 1.18;
+  }
+
+  .hero {
+    padding: 104px 18px 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .hero-actions span {
+    max-width: 300px;
+    margin-inline: auto;
+    line-height: 1.5;
   }
 
   .hero-actions,
@@ -1147,6 +1241,49 @@ p {
     border-radius: 20px 20px 0 0;
   }
 
+  .mockup-consult {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .mockup-message,
+  .mockup-panel {
+    text-align: center;
+  }
+
+  .risk-row {
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+  }
+
+  .section,
+  .cta-section {
+    padding: 68px 18px;
+  }
+
+  .section-heading {
+    margin-bottom: 34px;
+  }
+
+  .section-grid,
+  .form-section {
+    gap: 26px;
+  }
+
+  .section-grid p:not(.section-kicker),
+  .office-panel p,
+  .form-copy p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .problem-grid {
+    gap: 14px;
+    margin-top: 34px;
+  }
+
   .mockup-main,
   .contact-form,
   .lawyer-card,
@@ -1158,17 +1295,72 @@ p {
 
   .practice-item,
   .difference-item {
-    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
   }
 
+  .practice-item {
+    min-height: auto;
+  }
+
+  .practice-item span,
+  .difference-item span {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .difference-item {
+    padding: 20px;
+    font-size: 1.08rem;
+    line-height: 1.35;
+  }
+
+  .office-panel {
+    padding: 28px 20px;
+    border-radius: 24px;
+  }
+
+  .office-stats div {
+    padding: 20px 16px;
+    text-align: center;
+  }
+
   .office-stats strong {
-    font-size: 1.9rem;
+    font-size: 2rem;
+  }
+
+  .check-list {
+    font-size: 1rem;
+  }
+
+  .check-list li {
+    padding: 14px 16px;
+  }
+
+  .check-list li::before {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .lawyer-photo {
+    margin-inline: auto;
+  }
+
+  .contact-form label {
+    text-align: left;
+  }
+
+  .contact-line strong {
+    display: block;
+    overflow-wrap: anywhere;
   }
 
   .whatsapp-float {
     right: 14px;
     bottom: 14px;
+    min-height: 46px;
+    padding-inline: 16px;
   }
 
   .footer {
